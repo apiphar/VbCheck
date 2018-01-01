@@ -1,0 +1,68 @@
+Master Mesin
+IDMachine
+ItemCode
+Desc
+Category
+Capacitas
+DrumWide
+NoMC
+ForSize
+IsUse
+UseDate
+
+Master EnginePart
+IDPart
+PartName
+Cetegory
+
+Master Operator
+IDOpt
+NIP
+Name
+Grp
+NoBuild
+
+Master PM
+IDPM
+NIP
+Name
+Grp
+
+Master Lead
+IDLead
+NIP
+Name
+Grp
+
+Trx EngineCheckHeader
+NoCheck
+IDMachine
+IDopt
+IDPM (PIC)
+IDLead
+CheckDate
+Shift
+
+Trx EngineCheckDetail
+NoCheck
+IDPart
+ProblemDecription
+DamagedPart
+ActionPlan
+PartsNeeded
+PartsStatus
+Obstacle
+Action
+ProblemTime
+UntilTime
+Duration
+Condition1
+Condition2
+Losses
+IsEJO
+
+TrxEJO
+NoEJO
+EJODate
+NoCheck
+Desc
