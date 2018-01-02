@@ -66,12 +66,18 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Koneksi.vb" />
-    <Compile Include="Transaksi\Form1.vb">
+    <Compile Include="FrmLookUp.Designer.vb">
+      <DependentUpon>FrmLookUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLookUp.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaksi\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Koneksi.vb" />
+    <Compile Include="Transaksi\CheckMachine.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaksi\CheckMachine.Designer.vb">
+      <DependentUpon>CheckMachine.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -89,16 +95,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Transaksi\FrmCheckingMachine.Designer.vb">
+      <DependentUpon>FrmCheckingMachine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\FrmCheckingMachine.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmLookUp.resx">
+      <DependentUpon>FrmLookUp.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaksi\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Transaksi\CheckMachine.resx">
+      <DependentUpon>CheckMachine.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaksi\FrmCheckingMachine.resx">
+      <DependentUpon>FrmCheckingMachine.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

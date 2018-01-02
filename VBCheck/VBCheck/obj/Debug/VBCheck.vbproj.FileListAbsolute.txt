@@ -11,3 +11,12 @@ C:\Users\Apip2\AppData\Local\Temporary Projects\VBCheck\obj\Debug\VBCheck.pdb
 C:\VBCheck\VBCheck\VBCheck\obj\Debug\VBCheck.exe
 C:\VBCheck\VBCheck\VBCheck\obj\Debug\VBCheck.xml
 C:\VBCheck\VBCheck\VBCheck\obj\Debug\VBCheck.pdb
+C:\VbCheck\VBCheck\VBCheck\obj\Debug\ResolveAssemblyReference.cache
+C:\VbCheck\VBCheck\VBCheck\obj\Debug\VBCheck.Resources.resources
+C:\VbCheck\VBCheck\VBCheck\obj\Debug\VBCheck.CheckMachine.resources
+C:\VbCheck\VBCheck\VBCheck\obj\Debug\VBCheck.vbproj.GenerateResource.Cache
+C:\VbCheck\VBCheck\VBCheck\bin\Debug\VBCheck.exe
+C:\VbCheck\VBCheck\VBCheck\bin\Debug\VBCheck.pdb
+C:\VbCheck\VBCheck\VBCheck\bin\Debug\VBCheck.xml
+C:\VbCheck\VBCheck\VBCheck\obj\Debug\VBCheck.FrmLookUp.resources
+C:\VbCheck\VBCheck\VBCheck\obj\Debug\VBCheck.FrmCheckingMachine.resources
