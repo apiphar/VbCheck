@@ -1,9 +1,9 @@
 ﻿Imports System.Data.Sql
 Imports System.Data.SqlClient
-Public Class CheckMachine
+Public Class CheckMachineList
     Private Sub RefreshData()
         buka()
-        da = New SqlDataAdapter("select * from Vw_TrxCheckEngine", cn)
+        da = New SqlDataAdapter("select * from Vw_CheckHeader", cn)
         ds = New DataSet("Vw_TrxCheckEngine")
         ds.Clear()
         da.Fill(ds, "Vw_TrxCheckEngine")
@@ -15,6 +15,7 @@ Public Class CheckMachine
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         RefreshData()
+        btnTambah.Focus()
     End Sub
 
     Private Sub btnKeluar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnKeluar.Click
@@ -23,7 +24,7 @@ Public Class CheckMachine
 
     Private Sub txtCari_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtCari.TextChanged
         buka()
-        da = New SqlDataAdapter("select * from Vw_TrxCheckEngine where [NoCheck] like '%" & txtCari.Text & "%'", cn)
+        da = New SqlDataAdapter("select * from Vw_CheckHeader where [NoCheck] like '%" & txtCari.Text & "%'", cn)
         ds = New DataSet
         ds.Clear()
         da.Fill(ds, "Vw_TrxCheckEngine")
@@ -54,5 +55,18 @@ Public Class CheckMachine
     Private Sub btnTambah_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTambah.Click
         FrmCheckingMachine.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub dgv_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv.CellContentClick
+
+    End Sub
+
+    Private Sub dgv_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles dgv.DoubleClick
+        Dim i As Integer                    
+        With Detail
+            i = Me.dgv.CurrentRow.Index
+            .TxtNocheck.Text = Me.dgv.Item(0, i).Value
+            .Show()
+        End With
     End Sub
 End Class

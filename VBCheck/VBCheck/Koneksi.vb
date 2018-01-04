@@ -40,4 +40,82 @@ Module Koneksi
             MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Warning")
         End Try
     End Function
+#Region "MessageBox"
+    Public Sub MsgBoxError(ByVal Msg As String)
+        MsgBox(Msg, MsgBoxStyle.Critical, "Peringatan")
+    End Sub
+
+    Public Sub MsgSimpan()
+        MsgBox("Data berhasil disimpan", MsgBoxStyle.Information, "Informasi")
+    End Sub
+
+    Public Sub MsgUpdate()
+        MsgBox("Data berhasil di update", MsgBoxStyle.Information, "Informasi")
+    End Sub
+
+    Public Sub MsgHapus()
+        MsgBox("Data berhasil dihapus", MsgBoxStyle.Information, "Informasi")
+    End Sub
+
+    Public Sub MsgCari()
+        MsgBox("Data ditemukan", MsgBoxStyle.Information, "Informasi")
+    End Sub
+
+    Public Sub MsgErrorSimpan()
+        MsgBox("Data gagal di simpan,silahkan coba lagi", MsgBoxStyle.Critical, "Peringatan")
+    End Sub
+
+    Public Sub MsgErrorcari()
+        MsgBox("Data tidak ditemukan", MsgBoxStyle.Critical, "Peringatan")
+    End Sub
+
+    Public Sub MsgInputanAngka()
+        MsgBox("Inputan hanya boleh angka", MsgBoxStyle.Critical, "Peringatan")
+    End Sub
+    Public Sub MsgTextKosong()
+        MsgBox("Data masih ada yg kosong,silahkan di lengkapi", MsgBoxStyle.Exclamation, "Peringatan")
+    End Sub
+#End Region
+#Region "Validasi"
+    Public Function CheckKosongText(ByVal err As ErrorProvider, ByVal ParamArray ct() As Control) As Boolean
+        Dim b As Boolean
+        Dim i As Integer
+        Dim str As String
+        For i = 0 To ct.Length - 1
+            If TypeOf ct(i) Is TextBox Then
+                If ct(i).Text = "" Then
+                    str = ct(i).Name
+                    str = str.Remove(0, 3)
+                    err.SetError(ct(i), "Silahkan isi terlebih dahulu " & str & " sebelum di simpan.")
+                    ct(i).Focus()
+                    b = True
+                Else
+                    err.SetError(ct(i), Nothing)
+                    b = False
+                End If
+            End If
+        Next
+        Return b
+    End Function
+    Public Function CheckKosongCombo(ByVal err As ErrorProvider, ByVal ParamArray ct() As Control) As Boolean
+        Dim b As Boolean
+        Dim i As Integer
+        Dim str As String
+        For i = 0 To ct.Length - 1
+            If TypeOf ct(i) Is ComboBox Then
+                If ct(i).Text = "" Then
+                    str = ct(i).Name
+                    str = str.Remove(0, 3)
+                    err.SetError(ct(i), "Silahkan isi terlebih dahulu " & str & " sebelum di simpan.")
+                    ct(i).Focus()
+                    b = True
+                Else
+                    err.SetError(ct(i), Nothing)
+                    b = False
+                End If
+            End If
+        Next
+        Return b
+    End Function
+#End Region
 End Module

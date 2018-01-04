@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class CheckMachine
+Partial Class CheckMachineList
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,16 +23,16 @@ Partial Class CheckMachine
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.BtnCari = New System.Windows.Forms.Button
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.Dt2 = New System.Windows.Forms.DateTimePicker
+        Me.Dt1 = New System.Windows.Forms.DateTimePicker
         Me.txtCari = New System.Windows.Forms.TextBox
         Me.Panel2 = New System.Windows.Forms.Panel
         Me.btnKeluar = New System.Windows.Forms.Button
         Me.btnRefresh = New System.Windows.Forms.Button
         Me.btnTambah = New System.Windows.Forms.Button
         Me.dgv = New System.Windows.Forms.DataGridView
-        Me.Dt1 = New System.Windows.Forms.DateTimePicker
-        Me.Dt2 = New System.Windows.Forms.DateTimePicker
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.BtnCari = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,6 +52,40 @@ Partial Class CheckMachine
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pencarian Data"
+        '
+        'BtnCari
+        '
+        Me.BtnCari.Location = New System.Drawing.Point(405, 18)
+        Me.BtnCari.Name = "BtnCari"
+        Me.BtnCari.Size = New System.Drawing.Size(75, 23)
+        Me.BtnCari.TabIndex = 6
+        Me.BtnCari.Text = "Cari"
+        Me.BtnCari.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(263, 25)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(27, 13)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "S/D"
+        '
+        'Dt2
+        '
+        Me.Dt2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dt2.Location = New System.Drawing.Point(294, 19)
+        Me.Dt2.Name = "Dt2"
+        Me.Dt2.Size = New System.Drawing.Size(105, 20)
+        Me.Dt2.TabIndex = 10
+        '
+        'Dt1
+        '
+        Me.Dt1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.Dt1.Location = New System.Drawing.Point(152, 19)
+        Me.Dt1.Name = "Dt1"
+        Me.Dt1.Size = New System.Drawing.Size(105, 20)
+        Me.Dt1.TabIndex = 9
         '
         'txtCari
         '
@@ -103,47 +137,14 @@ Partial Class CheckMachine
         'dgv
         '
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv.Dock = System.Windows.Forms.DockStyle.Top
+        Me.dgv.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgv.Location = New System.Drawing.Point(0, 88)
         Me.dgv.Name = "dgv"
-        Me.dgv.Size = New System.Drawing.Size(552, 317)
+        Me.dgv.ReadOnly = True
+        Me.dgv.Size = New System.Drawing.Size(552, 271)
         Me.dgv.TabIndex = 11
         '
-        'Dt1
-        '
-        Me.Dt1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Dt1.Location = New System.Drawing.Point(152, 19)
-        Me.Dt1.Name = "Dt1"
-        Me.Dt1.Size = New System.Drawing.Size(105, 20)
-        Me.Dt1.TabIndex = 9
-        '
-        'Dt2
-        '
-        Me.Dt2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Dt2.Location = New System.Drawing.Point(294, 19)
-        Me.Dt2.Name = "Dt2"
-        Me.Dt2.Size = New System.Drawing.Size(105, 20)
-        Me.Dt2.TabIndex = 10
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(263, 25)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(27, 13)
-        Me.Label1.TabIndex = 11
-        Me.Label1.Text = "S/D"
-        '
-        'BtnCari
-        '
-        Me.BtnCari.Location = New System.Drawing.Point(405, 18)
-        Me.BtnCari.Name = "BtnCari"
-        Me.BtnCari.Size = New System.Drawing.Size(75, 23)
-        Me.BtnCari.TabIndex = 6
-        Me.BtnCari.Text = "Cari"
-        Me.BtnCari.UseVisualStyleBackColor = True
-        '
-        'CheckMachine
+        'CheckMachineList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -151,8 +152,9 @@ Partial Class CheckMachine
         Me.Controls.Add(Me.dgv)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Name = "CheckMachine"
+        Me.Name = "CheckMachineList"
         Me.Text = "Form1"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
