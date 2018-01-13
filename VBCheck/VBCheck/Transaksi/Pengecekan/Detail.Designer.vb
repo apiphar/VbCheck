@@ -63,9 +63,9 @@ Partial Class Detail
         '
         Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgv.Enabled = False
         Me.dgv.Location = New System.Drawing.Point(0, 52)
         Me.dgv.Name = "dgv"
+        Me.dgv.ReadOnly = True
         Me.dgv.Size = New System.Drawing.Size(540, 309)
         Me.dgv.TabIndex = 12
         '

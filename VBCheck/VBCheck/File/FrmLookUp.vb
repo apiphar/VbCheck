@@ -39,10 +39,37 @@ Public Class FrmLookUp
             .Dgv.Columns(8).HeaderText = "Is Use"
         End With
         GridColumnMachine()
-    End Sub    
-    
+    End Sub
+    Private Sub GridColumnsIsEJO()
+        With Me
+            Dgv.Columns(0).Width = 100
+            Dgv.Columns(1).Width = 100
+            Dgv.Columns(2).Visible = False
+            Dgv.Columns(3).Visible = False
+            Dgv.Columns(4).Width = 100
+            Dgv.Columns(5).Width = 100
+            Dgv.Columns(6).Width = 100
+        End With
+
+    End Sub
+    Private Sub GridHeaderIsEJO()
+        With Me
+            Dgv.Columns(0).HeaderText = "No Check"
+            Dgv.Columns(1).HeaderText = "Tanggal Check"
+            'Dgv.Columns(2).HeaderText = "IDMachine"
+            'Dgv.Columns(3).HeaderText = "IDLead"
+            Dgv.Columns(4).HeaderText = "No MC"
+            Dgv.Columns(5).HeaderText = "Lead Name"
+            Dgv.Columns(6).HeaderText = "Group"
+        End With
+        GridColumnsIsEJO()
+    End Sub
     Private Sub BtnKeluar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnKeluar.Click
         Me.Close()
+    End Sub
+
+    Private Sub FrmLookUp_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.DoubleClick
+
     End Sub
 
     Private Sub FrmLookUp_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -109,6 +136,19 @@ Public Class FrmLookUp
                     da.Dispose()
                     ds.Dispose()
                 End With
+            Case "IsEJO"
+                With Me
+                    buka()
+                    da = New SqlDataAdapter("select * from Vw_IsEJo", cn)
+                    ds = New DataSet
+                    ds.Clear()
+                    da.Fill(ds, "IsEJO")
+                    Dgv.DataSource = ds.Tables("IsEJO")                    
+                    cn.Close()
+                    da.Dispose()
+                    ds.Dispose()
+                End With
+                GridHeaderIsEJO()
         End Select
     End Sub
 
@@ -187,6 +227,15 @@ Public Class FrmLookUp
                     i = Me.Dgv.CurrentRow.Index
                     .TxtPart.Text = Me.Dgv.Item(1, i).Value
                     .TxtIdPart.Text = Me.Dgv.Item(0, i).Value
+                    Me.Close()
+                End With
+            Case "IsEJO"
+                With FrmEJO
+                    i = Me.Dgv.CurrentRow.Index
+                    .TxtNoPengecekan.Text = Me.Dgv.Item(0, i).Value
+                    .txtIdlead.Text = Me.Dgv.Item(3, i).Value
+                    .TxtLead.Text = Me.Dgv.Item(5, i).Value
+                    .TxtGrp.Text = Me.Dgv.Item(6, i).Value
                     Me.Close()
                 End With
         End Select

@@ -30,3 +30,4 @@ C:\VbCheck\VBCheck\VBCheck\obj\Debug\VBCheck.FrmUser.resources
 C:\VbCheck\VBCheck\VBCheck\obj\Debug\VBCheck.FrmLogin.resources
 C:\VbCheck\VBCheck\VBCheck\obj\Debug\VBCheck.MenuUtama.resources
 C:\VbCheck\VBCheck\VBCheck\obj\Debug\VBCheck.FrmGantiPass.resources
+C:\VbCheck\VBCheck\VBCheck\obj\Debug\VBCheck.FrmEJO.resources

@@ -97,10 +97,16 @@
     <Compile Include="MenuUtama.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaksi\CheckMachineList.vb">
+    <Compile Include="Transaksi\EJO\FrmEJO.Designer.vb">
+      <DependentUpon>FrmEJO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\EJO\FrmEJO.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaksi\CheckMachineList.Designer.vb">
+    <Compile Include="Transaksi\Pengecekan\CheckMachineList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaksi\Pengecekan\CheckMachineList.Designer.vb">
       <DependentUpon>CheckMachineList.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -119,16 +125,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Transaksi\Detail.Designer.vb">
+    <Compile Include="Transaksi\Pengecekan\Detail.Designer.vb">
       <DependentUpon>Detail.vb</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\Detail.vb">
+    <Compile Include="Transaksi\Pengecekan\Detail.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaksi\FrmCheckingMachine.Designer.vb">
+    <Compile Include="Transaksi\Pengecekan\FrmCheckingMachine.Designer.vb">
       <DependentUpon>FrmCheckingMachine.vb</DependentUpon>
     </Compile>
-    <Compile Include="Transaksi\FrmCheckingMachine.vb">
+    <Compile Include="Transaksi\Pengecekan\FrmCheckingMachine.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -154,13 +160,16 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaksi\CheckMachineList.resx">
+    <EmbeddedResource Include="Transaksi\EJO\FrmEJO.resx">
+      <DependentUpon>FrmEJO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaksi\Pengecekan\CheckMachineList.resx">
       <DependentUpon>CheckMachineList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaksi\Detail.resx">
+    <EmbeddedResource Include="Transaksi\Pengecekan\Detail.resx">
       <DependentUpon>Detail.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaksi\FrmCheckingMachine.resx">
+    <EmbeddedResource Include="Transaksi\Pengecekan\FrmCheckingMachine.resx">
       <DependentUpon>FrmCheckingMachine.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

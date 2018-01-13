@@ -22,6 +22,7 @@ Partial Class FrmCheckingMachine
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
         Me.Label1 = New System.Windows.Forms.Label
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.TxtIDLead = New System.Windows.Forms.TextBox
@@ -52,6 +53,11 @@ Partial Class FrmCheckingMachine
         Me.TxtPart = New System.Windows.Forms.TextBox
         Me.BtnCaripart = New System.Windows.Forms.Button
         Me.Panel2 = New System.Windows.Forms.Panel
+        Me.BtnSimpanAll = New System.Windows.Forms.Button
+        Me.Button1 = New System.Windows.Forms.Button
+        Me.Dt2 = New System.Windows.Forms.DateTimePicker
+        Me.Dt1 = New System.Windows.Forms.DateTimePicker
+        Me.TxtIdPart = New System.Windows.Forms.TextBox
         Me.BtnAdd = New System.Windows.Forms.Button
         Me.TxtLosses = New System.Windows.Forms.TextBox
         Me.Txtkon2 = New System.Windows.Forms.TextBox
@@ -80,14 +86,11 @@ Partial Class FrmCheckingMachine
         Me.Label11 = New System.Windows.Forms.Label
         Me.Button2 = New System.Windows.Forms.Button
         Me.Dgv = New System.Windows.Forms.DataGridView
-        Me.TxtIdPart = New System.Windows.Forms.TextBox
-        Me.Dt1 = New System.Windows.Forms.DateTimePicker
-        Me.Dt2 = New System.Windows.Forms.DateTimePicker
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.BtnSimpanAll = New System.Windows.Forms.Button
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.Dgv, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -433,6 +436,50 @@ Partial Class FrmCheckingMachine
         Me.Panel2.Size = New System.Drawing.Size(804, 205)
         Me.Panel2.TabIndex = 31
         '
+        'BtnSimpanAll
+        '
+        Me.BtnSimpanAll.Enabled = False
+        Me.BtnSimpanAll.Location = New System.Drawing.Point(685, 174)
+        Me.BtnSimpanAll.Name = "BtnSimpanAll"
+        Me.BtnSimpanAll.Size = New System.Drawing.Size(55, 23)
+        Me.BtnSimpanAll.TabIndex = 64
+        Me.BtnSimpanAll.Text = "Save All"
+        Me.BtnSimpanAll.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(651, 174)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(31, 23)
+        Me.Button1.TabIndex = 63
+        Me.Button1.Text = "-" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Dt2
+        '
+        Me.Dt2.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.Dt2.Location = New System.Drawing.Point(573, 76)
+        Me.Dt2.Name = "Dt2"
+        Me.Dt2.Size = New System.Drawing.Size(104, 20)
+        Me.Dt2.TabIndex = 62
+        '
+        'Dt1
+        '
+        Me.Dt1.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.Dt1.Location = New System.Drawing.Point(463, 77)
+        Me.Dt1.Name = "Dt1"
+        Me.Dt1.Size = New System.Drawing.Size(108, 20)
+        Me.Dt1.TabIndex = 61
+        '
+        'TxtIdPart
+        '
+        Me.TxtIdPart.Location = New System.Drawing.Point(253, 5)
+        Me.TxtIdPart.MaxLength = 7
+        Me.TxtIdPart.Name = "TxtIdPart"
+        Me.TxtIdPart.Size = New System.Drawing.Size(10, 20)
+        Me.TxtIdPart.TabIndex = 60
+        Me.TxtIdPart.Visible = False
+        '
         'BtnAdd
         '
         Me.BtnAdd.Location = New System.Drawing.Point(618, 174)
@@ -684,56 +731,14 @@ Partial Class FrmCheckingMachine
         '
         Me.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgv.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Dgv.Enabled = False
         Me.Dgv.Location = New System.Drawing.Point(0, 410)
         Me.Dgv.Name = "Dgv"
         Me.Dgv.Size = New System.Drawing.Size(804, 172)
         Me.Dgv.TabIndex = 32
         '
-        'TxtIdPart
+        'ErrorProvider1
         '
-        Me.TxtIdPart.Enabled = False
-        Me.TxtIdPart.Location = New System.Drawing.Point(253, 5)
-        Me.TxtIdPart.MaxLength = 7
-        Me.TxtIdPart.Name = "TxtIdPart"
-        Me.TxtIdPart.Size = New System.Drawing.Size(10, 20)
-        Me.TxtIdPart.TabIndex = 60
-        Me.TxtIdPart.Visible = False
-        '
-        'Dt1
-        '
-        Me.Dt1.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.Dt1.Location = New System.Drawing.Point(463, 77)
-        Me.Dt1.Name = "Dt1"
-        Me.Dt1.Size = New System.Drawing.Size(108, 20)
-        Me.Dt1.TabIndex = 61
-        '
-        'Dt2
-        '
-        Me.Dt2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.Dt2.Location = New System.Drawing.Point(573, 76)
-        Me.Dt2.Name = "Dt2"
-        Me.Dt2.Size = New System.Drawing.Size(104, 20)
-        Me.Dt2.TabIndex = 62
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(651, 174)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(31, 23)
-        Me.Button1.TabIndex = 63
-        Me.Button1.Text = "-" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'BtnSimpanAll
-        '
-        Me.BtnSimpanAll.Enabled = False
-        Me.BtnSimpanAll.Location = New System.Drawing.Point(685, 174)
-        Me.BtnSimpanAll.Name = "BtnSimpanAll"
-        Me.BtnSimpanAll.Size = New System.Drawing.Size(55, 23)
-        Me.BtnSimpanAll.TabIndex = 64
-        Me.BtnSimpanAll.Text = "Save All"
-        Me.BtnSimpanAll.UseVisualStyleBackColor = True
+        Me.ErrorProvider1.ContainerControl = Me
         '
         'FrmCheckingMachine
         '
@@ -752,6 +757,7 @@ Partial Class FrmCheckingMachine
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.Dgv, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -818,4 +824,5 @@ Partial Class FrmCheckingMachine
     Friend WithEvents Dt1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents BtnSimpanAll As System.Windows.Forms.Button
+    Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
 End Class

@@ -304,7 +304,7 @@ Public Class FrmCheckingMachine
                 .Dgv.Item(12, intbaris).Value = .Txtkon2.Text
                 .Dgv.Item(13, intbaris).Value = TxtLosses.Text
                 .Dgv.Item(14, intbaris).Value = EJO
-                .Dgv.Item(15, intbaris).Value = .TxtIdPart
+                .Dgv.Item(15, intbaris).Value = .TxtIdPart.Text
             End With
             intbaris = intbaris + 1
         Catch ex As Exception
@@ -325,5 +325,80 @@ Public Class FrmCheckingMachine
         If delete = MsgBoxResult.Yes Then
             Hapus()
         End If
+    End Sub
+    Public Function Simpan() As Boolean
+        Dim Result As Boolean = False
+        Dim SqlHeader As String
+        Dim SqlDetail As String
+        Dim UpdateMachine As String
+        Dim detail As Integer
+        Dim Trans As SqlTransaction
+        Dim CMD1 As SqlCommand
+        Dim CMD2 As SqlCommand
+        Dim MC As SqlCommand
+        Dim CheckDate As String
+        Dim IsEJo As Boolean
+
+        CheckDate = Convert.ToDateTime(DtTgl.Value).ToString("yyyy-MM-dd")
+
+        Try
+            buka()
+            Trans = cn.BeginTransaction
+            SqlHeader = "Insert into TrxCheckHeader([NoCheck],IDMachine,IDOpt,IDPM,IDLead,CheckDate,Shift)Values('" & TxtNoCheck.Text & "'" & _
+                        ",'" & TxtIDMc.Text & "','" & TxtIDOpt.Text & "','" & TxtIDPM.Text & "','" & TxtIDLead.Text & "','" & CheckDate & "','" & TxtSift.Text & "')"
+            CMD1 = New SqlCommand(SqlHeader, cn, Trans)
+            CMD1.ExecuteNonQuery()
+
+            For detail = 0 To Dgv.Rows.Count - 2
+                If Dgv.Rows(detail).Cells(14).Value = "Yes" Then
+                    IsEJo = True
+                Else
+                    IsEJo = False
+                End If
+
+                SqlDetail = "Insert into TrxCheckDetail([Nocheck],IDPart,ProblemDecription,DamagedPart,ActionPlan,PartsNeeded,PartsStatus,Obstacle,Action,ProblemTime,UntilTime,Duration,Condition1,Condition2,Losses,IsEJO)Values('" & TxtNoCheck.Text & "'" & _
+                            ",'" & Dgv.Rows(detail).Cells(15).Value & "','" & Dgv.Rows(detail).Cells(1).Value & "','" & Dgv.Rows(detail).Cells(2).Value & "','" & Dgv.Rows(detail).Cells(3).Value & "','" & Dgv.Rows(detail).Cells(4).Value & "'" & _
+                            ",'" & Dgv.Rows(detail).Cells(5).Value & "','" & Dgv.Rows(detail).Cells(6).Value & "','" & Dgv.Rows(detail).Cells(7).Value & "','" & Dgv.Rows(detail).Cells(8).Value & "','" & Dgv.Rows(detail).Cells(9).Value & "'" & _
+                            ",'" & Dgv.Rows(detail).Cells(10).Value & "','" & Dgv.Rows(detail).Cells(11).Value & "','" & Dgv.Rows(detail).Cells(12).Value & "','" & Dgv.Rows(detail).Cells(13).Value & "','" & IsEJo & "')"
+                CMD2 = New SqlCommand(SqlDetail, cn, Trans)
+                CMD2.ExecuteNonQuery()
+            Next
+
+            UpdateMachine = "Update MasterMachine set CheckDate='" & CheckDate & "',StatusCheck='" & IsEJo & "' Where IDMachine='" & TxtIDMc.Text & "'"
+            MC = New SqlCommand(UpdateMachine, cn, Trans)
+            MC.ExecuteNonQuery()
+
+            CMD1.Dispose()
+            CMD2.Dispose()
+            MC.Dispose()
+        Catch ex As Exception
+            Trans.Rollback()
+            MsgBoxError(ex.Message)
+            Result = False
+        Finally
+            Trans.Commit()
+            Trans.Dispose()
+            CloseConn()
+            Result = True
+        End Try
+        Return Result
+
+    End Function
+    Private Sub BtnSimpanAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSimpanAll.Click
+        If CheckKosongText(ErrorProvider1, Me.TxtNoMC) Then
+            Exit Sub
+        ElseIf CheckKosongText(ErrorProvider1, Me.TxtOptName) Then
+            Exit Sub
+        ElseIf CheckKosongText(ErrorProvider1, Me.TxtPM) Then
+            Exit Sub
+        ElseIf CheckKosongText(ErrorProvider1, Me.TxtLead) Then
+            Exit Sub
+        ElseIf CheckKosongText(ErrorProvider1, Me.TxtSift) Then
+            Exit Sub
+        End If
+
+        Simpan()
+        Dgv.Rows.Clear()
+        TampilanAwal()
     End Sub
 End Class

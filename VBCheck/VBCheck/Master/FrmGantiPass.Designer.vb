@@ -22,6 +22,7 @@ Partial Class FrmGantiPass
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
         Me.Label1 = New System.Windows.Forms.Label
         Me.btnSimpan = New System.Windows.Forms.Button
         Me.btnTambah = New System.Windows.Forms.Button
@@ -31,6 +32,8 @@ Partial Class FrmGantiPass
         Me.Label2 = New System.Windows.Forms.Label
         Me.TxtConfPass = New System.Windows.Forms.TextBox
         Me.Label4 = New System.Windows.Forms.Label
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -41,7 +44,7 @@ Partial Class FrmGantiPass
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(352, 47)
+        Me.Label1.Size = New System.Drawing.Size(299, 47)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Ganti Password"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -70,7 +73,7 @@ Partial Class FrmGantiPass
         Me.TxtPassNew.MaxLength = 8
         Me.TxtPassNew.Name = "TxtPassNew"
         Me.TxtPassNew.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TxtPassNew.Size = New System.Drawing.Size(210, 20)
+        Me.TxtPassNew.Size = New System.Drawing.Size(136, 20)
         Me.TxtPassNew.TabIndex = 14
         '
         'Label3
@@ -89,7 +92,7 @@ Partial Class FrmGantiPass
         Me.TxtPassOld.Location = New System.Drawing.Point(136, 50)
         Me.TxtPassOld.MaxLength = 1000
         Me.TxtPassOld.Name = "TxtPassOld"
-        Me.TxtPassOld.Size = New System.Drawing.Size(210, 20)
+        Me.TxtPassOld.Size = New System.Drawing.Size(136, 20)
         Me.TxtPassOld.TabIndex = 12
         '
         'Label2
@@ -108,7 +111,7 @@ Partial Class FrmGantiPass
         Me.TxtConfPass.MaxLength = 8
         Me.TxtConfPass.Name = "TxtConfPass"
         Me.TxtConfPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TxtConfPass.Size = New System.Drawing.Size(210, 20)
+        Me.TxtConfPass.Size = New System.Drawing.Size(136, 20)
         Me.TxtConfPass.TabIndex = 18
         '
         'Label4
@@ -121,11 +124,15 @@ Partial Class FrmGantiPass
         Me.Label4.TabIndex = 17
         Me.Label4.Text = "Konfirmasi Password"
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
         'FrmGantiPass
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(352, 157)
+        Me.ClientSize = New System.Drawing.Size(299, 157)
         Me.Controls.Add(Me.TxtConfPass)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnSimpan)
@@ -137,6 +144,7 @@ Partial Class FrmGantiPass
         Me.Controls.Add(Me.Label1)
         Me.Name = "FrmGantiPass"
         Me.Text = "GantiPass"
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -150,4 +158,5 @@ Partial Class FrmGantiPass
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents TxtConfPass As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
 End Class
